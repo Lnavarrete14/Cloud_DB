@@ -1,0 +1,1 @@
+ALTER TABLE tbl_com_partes_web_app ALTER COLUMN stock decimal(18,2)
