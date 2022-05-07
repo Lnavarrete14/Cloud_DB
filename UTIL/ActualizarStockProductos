@@ -1,0 +1,18 @@
+--MOSTRAR PRODUCTOS CON DIFERENCIAS: TBL_COM_PARTES_WEB_APP VS TBL_INV_EXISTENCIA_UBICACION_ITEM_WEB_APP
+select 
+a.nombre,
+a.stock,
+a.stock_libras,
+b.existencia,
+b.existencia_peso
+from tbl_com_partes_web_app a join tbl_inv_existencia_ubicacion_item_web_app b
+on a.id_empresa_new=b.id_empresa_new and a.id_new_item=b.id_new_item
+where a.id_empresa_new=1215
+and a.stock<>b.existencia
+
+--ACTUALIZAR STOCK
+update a set a.stock=b.existencia
+from tbl_com_partes_web_app a join tbl_inv_existencia_ubicacion_item_web_app b
+on a.id_empresa_new=b.id_empresa_new and a.id_new_item=b.id_new_item
+where a.id_empresa_new=1215
+and a.stock<>b.existencia
